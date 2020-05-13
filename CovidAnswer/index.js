@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = async function (context, req) {
 
-    const urls = ["https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/7c68948f-06d8-4c18-aa71-c7340e32f34f/generateAnswer", "https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/c1274fb8-ae0f-4971-b3bd-6e140e88fbda/generateAnswer"];
+    const urls = ["https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/714baa2f-18e8-4849-9d7d-6645e954aea0/generateAnswer"];
 
     if (req.query.name || (req.body && req.body.name)) {
         let data = await getAllUrls(urls, req.query.q);
