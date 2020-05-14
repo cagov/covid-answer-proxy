@@ -1,11 +1,14 @@
 const fetch = require('node-fetch');
+const marked = require('marked');
 
 module.exports = async function (context, req) {
 
     const urls = ["https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/714baa2f-18e8-4849-9d7d-6645e954aea0/generateAnswer"];
 
-    if (req.query.name || (req.body && req.body.name)) {
-        let data = await getAllUrls(urls, req.query.q);
+    if (req.query.q || (req.body && req.body.q)) {
+        let query = req.query.q;
+        if(!query) query = req.body.q;
+        let data = unMarkDown(await getAllUrls(urls, query));
         context.res = {
             headers: {
             'Content-Type': 'application/json'
@@ -16,11 +19,17 @@ module.exports = async function (context, req) {
     else {
         context.res = {
             status: 400,
-            body: "Please pass a name on the query string or in the request body"
+            body: "Please pass q on the query string or in the request body"
         };
     }
 };
 
+function unMarkDown(data) {
+    data[0].answers.forEach(d => {
+        d.answer = marked(d.answer)
+    })
+    return data;
+}
 async function getAllUrls(urls, q) {
     try {
         var data = await Promise.all(
@@ -37,7 +46,6 @@ async function getAllUrls(urls, q) {
                       }).then(
                         (response) => response.json()
                     )));
-        console.log('don')
         return (data)
 
     } catch (error) {
