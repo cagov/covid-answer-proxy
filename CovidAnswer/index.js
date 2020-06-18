@@ -42,7 +42,7 @@ async function getAllUrls(urls, q) {
                           "Authorization": "EndpointKey c1b8855b-2919-47ec-9387-6d9cc64dcb41"
                         },
                         redirect: 'follow', 
-                        body: JSON.stringify({'question':q, 'top': 5})
+                        body: JSON.stringify({'question':q, 'top': 15})
                       }).then(
                         (response) => response.json()
                     )));
