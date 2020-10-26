@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/cagov/covid-answer-proxy/issues"
   },
-  "homepage": "https://github.com/cagov/covid-answer-proxy#readme"
+  "homepage": "https://github.com/cagov/covid-answer-proxy#readme",
+  "dependencies": {
+    "marked": "^1.2.2",
+    "node-fetch": "^2.6.1"
+  }
 }
