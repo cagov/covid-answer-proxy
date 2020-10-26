@@ -1,7 +1,11 @@
 {
   "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[1.*, 2.0.0)"
+  "extensions": {
+      "http": {
+          "routePrefix": "",
+          "maxOutstandingRequests": 200,
+          "maxConcurrentRequests": 100,
+          "dynamicThrottlesEnabled": true
+      }
   }
 }
