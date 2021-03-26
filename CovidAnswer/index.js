@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
         let lang = '';
         // check for presence of lang param.  if used, we assume a large knowledgebase 
         // and filter results appropriate for the language in use
-        if (('lang' in req.query)) {
+        if ('lang' in req.query) {
             lang = req.query.lang;
             if(!lang) lang = req.body.lang;
             // DEBUG DEBUG DEBUG
