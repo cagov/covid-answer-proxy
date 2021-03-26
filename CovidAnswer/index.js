@@ -57,6 +57,9 @@ module.exports = async function (context, req) {
 				    console.log("Unknown language, should not happen", lang);
 				}
 			}
+            if (answers.length > 15) {
+                answers.splice(15);
+            }
             data[0].answers = answers;
         }
         context.res = {
