@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
         let lang = '';
         // check for presence of lang param.  if used, we assume a large knowledgebase 
         // and filter results appropriate for the language in use
-        if (('lang' in req.query) || ('lang' in req.body)) {
+        if (('lang' in req.query) || ('body' in req && 'lang' in req.body)) {
             lang = req.query.lang;
             if(!lang) lang = req.body.lang;
             // DEBUG DEBUG DEBUG
@@ -62,6 +62,7 @@ module.exports = async function (context, req) {
             }
             data[0].answers = answers;
         }
+        // console.log("Len Answers",data[0].answers.length);
         context.res = {
             headers: {
             'Content-Type': 'application/json'
