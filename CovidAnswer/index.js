@@ -20,7 +20,7 @@ module.exports = async function (context, req) {
             // across master and preprod.  This points to an alternate knowledgebase that contains 
             // a full crawl including non-english pages (~2300 questions). We can't perform this
             // crawl on the main knowledgebase until other code is deployed.
-            urls[0] = 'https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/7c68948f-06d8-4c18-aa71-c7340e32f34f/generateAnswer';
+            // urls[0] = 'https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/7c68948f-06d8-4c18-aa71-c7340e32f34f/generateAnswer';
         }
 
         let limit = lang == ''? 15 : 200; // for language-specified search, there are roughly 7x search results
