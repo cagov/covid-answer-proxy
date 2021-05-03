@@ -6,7 +6,7 @@ name: Build and deploy Node.js project to Azure Function App - FA-GO-COVID-ANSW-
 on:
   push:
     branches:
-      - master
+      - CCG-2140/task-migrate-subs-plans
   workflow_dispatch:
 
 env:
