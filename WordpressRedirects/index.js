@@ -8,7 +8,7 @@ module.exports = async function (context, req) {
     let output = await fetch(redirectEndpoint, {}).then((response) =>
       response.json()
     );
-    delete output.plugin.date; // purpose of this proxy is to remove this hourly updating date field
+    delete output.plugin.date; // remove this hourly updating date field
 
     context.res = {
       headers: {
