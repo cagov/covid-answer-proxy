@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const marked = require('marked');
 
-module.exports = async function (context, req) {
+module.exports = async function (context, req)  {
 
     const urls = ["https://qa-go-covid-001.azurewebsites.net/qnamaker/knowledgebases/714baa2f-18e8-4849-9d7d-6645e954aea0/generateAnswer"];
 
